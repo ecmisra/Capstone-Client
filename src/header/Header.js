@@ -7,6 +7,7 @@ const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password">Change Password</Link>
     <Link to="/sign-out">Sign Out</Link>
+    <Link to='/gas_logs'>Gas Logs</Link>
   </React.Fragment>
 )
 
@@ -26,6 +27,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <header className="main-header">
     <h1>MileEdge</h1>
+    <img src="../../public/gas-station.png" alt="logo"/>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
