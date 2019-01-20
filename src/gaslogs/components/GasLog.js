@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { withRouter } from 'react-router'
 import apiUrl from '../../apiConfig'
 import { Redirect } from 'react-router-dom'
@@ -9,7 +9,7 @@ class GasLog extends Component {
     super(props)
 
     this.state = {
-      movie: null,
+      gasLog: [],
       notFound: false,
       deleted: false
     }
@@ -18,10 +18,10 @@ class GasLog extends Component {
   componentDidMount () {
     const id = this.props.match.params.id
 
-    fetch(`${apiUrl}/gas_logs/${id}`)
+    fetch(`${apiUrl}/gas_logs`)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
-      .then(data => this.setState({ movie: data.movie }))
+      .then(data => this.setState({ gasLog: data.gas_logs }))
       .catch(() => this.setState({ notFound: true }))
   }
 
@@ -32,45 +32,52 @@ class GasLog extends Component {
 
     const id = this.props.match.params.id
 
-    fetch(`${apiUrl}/gas_logs/${id}`, options)
+    fetch(`${apiUrl}/gas_logs`, options)
       .then(res => res.ok ? res : new Error())
       .then(data => this.setState({ deleted: true }))
       .catch(() => this.setState({ notFound: true }))
   }
 
   render () {
-
-    const { gasLog, notFound, deleted } = this.state
-
-    if (notFound) {
-      return <Redirect to="/" />
-    } else if (!gasLog) {
-      return <p>loading...</p>
-    } else if (deleted) {
-      return (<Redirect to={{
-        pathname: '/',
-        state: { message: 'Gas Log successfully deleted!'}
-      }} />
+    console.log(this.state)
+    const gasLogs = this.state.gasLog.map(gasLog => {
+      return (
+        <div key={gasLog}>
+          <ol>
+            <li>Date: {gasLog.date}</li>
+            <li>Odometer: {gasLog.odometer}</li>
+            <li>Volume: {gasLog.volume}</li>
+            <li>Fuel Type: {gasLog.fuel}</li>
+            <li>Brand of Gas: {gasLog.brand}</li>
+            <li>Price per gal: ${gasLog.price}</li>
+            <li>Total spent: ${gasLog.total}</li>
+          </ol>
+        </div>
       )
-    }
+    })
+    // const { gasLog, notFound, deleted } = this.state
+
+    // if (notFound) {
+    //   return <Redirect to="/" />
+    // } else if (!gasLog) {
+    //   return <p>loading...</p>
+    // } else if (deleted) {
+    //   return (<Redirect to={{
+    //     pathname: '/',
+    //     state: { message: 'Gas Log successfully deleted!'}
+    //   }} />
+    //   )
 
 
-    const { date, odometer, volume, fuel, brand, price, total } = gasLog
+    // const { date, odometer, volume, fuel, brand, price, total } = gasLog
     return (
-      <React.Fragment>
-        <h5 className="m-3">{date}</h5>
-        <p className="m-3">Odometer: {odometer} miles</p>
-        <p className="m-3">Volume: {volume} gallons</p>
-        <p className="m-3">Fuel Type: {fuel}</p>
-        <p className="m-3">Brand: {brand}</p>
-        <p className="m-3">Price per gal: ${price}</p>
-        <p className="m-3">Total: ${total}</p>
-        <button onClick={this.destroy} className="badge badge-warning m-3">Delete</button>
-        <button className="badge badge-info m-3"><Link to={`/gas_logs/${id}/edit`}>Edit</Link></button>
-        <button className="badge badge-success m-3"><Link to='/home/'>Back</Link></button>
-      </React.Fragment>
+      <Fragment>
+        <h1>hello</h1>
+        {gasLogs}
+      </Fragment>
     )
   }
 }
+
 
 export default withRouter(GasLog)

@@ -9,6 +9,7 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import GasLogCreate from './gaslogs/components/CreateGasLog'
+import GasLog from './gaslogs/components/GasLog'
 
 class App extends Component {
   constructor () {
@@ -55,8 +56,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/gas_logs' render={() => (
+          <AuthenticatedRoute user={user} path='/create' render={() => (
             <GasLogCreate flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/gas_logs' render={() => (
+            <GasLog flash={this.flash} user={user} />
           )} />
         </main>
       </React.Fragment>

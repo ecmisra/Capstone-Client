@@ -27,7 +27,8 @@ class GasLogCreate extends Component {
     const options = {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Authorization': `Token token=${user.user.token}`
       },
       body: JSON.stringify({
         movie: this.state.movie
