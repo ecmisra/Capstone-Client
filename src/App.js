@@ -9,14 +9,14 @@ import SignIn from './auth/components/SignIn'
 import SignOut from './auth/components/SignOut'
 import ChangePassword from './auth/components/ChangePassword'
 import GasLogCreate from './gaslogs/components/CreateGasLog'
-import GasLog from './gaslogs/components/GasLog'
+import GasLogs from './gaslogs/components/GasLogs'
 
 class App extends Component {
   constructor () {
     super()
 
     this.state = {
-      user: null,
+      user: '',
       flashMessage: '',
       flashType: null
     }
@@ -60,7 +60,10 @@ class App extends Component {
             <GasLogCreate flash={this.flash} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/gas_logs' render={() => (
-            <GasLog flash={this.flash} user={user} />
+            <GasLogs flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/gas_logs/:id' render={() => (
+            <GasLogs flash={this.flash} user={user} />
           )} />
         </main>
       </React.Fragment>
