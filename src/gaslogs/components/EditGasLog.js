@@ -3,6 +3,7 @@ import apiUrl from '../../apiConfig'
 import { withRouter, Redirect } from 'react-router-dom'
 import './GasLogs.scss'
 import GasLogForm from './GasLogForm.js'
+import messages from '../messages.js'
 
 class GasLogEdit extends Component {
   constructor(props) {
@@ -65,10 +66,14 @@ class GasLogEdit extends Component {
     }
 
     const id = this.props.match.params.id
+    const { flash } = this.props
+
 
     fetch(`${apiUrl}/gas_logs/${id}`, options)
       .then(res => res.ok ? res : new Error())
       .then(data => this.setState({ updated: true }))
+      .then(() => flash(messages.updateLogSuccess, 'flash-success'))
+      .catch(() => flash(messages.updateLogFailure, 'flash-error'))
       .catch(console.error)
 
   }

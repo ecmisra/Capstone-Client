@@ -5,9 +5,9 @@ import './Header.scss'
 
 const authenticatedOptions = (
   <React.Fragment>
-    <Link to="/change-password" className="badge badge-warning m-3">Change Password</Link>
+    <Link to="/change-password" className="badge badge-info m-3">Change Password</Link>
     <Link to="/sign-out" className="badge badge-info m-3">Sign Out</Link>
-    <Link to='/gas_logs' className="badge badge-info m-3">Gas Logs</Link>
+    <Link to='/gas_logs' className="badge badge-warning m-3">Gas Logs</Link>
     <Link to='/create' className="badge badge-success m-3">New Gas Log</Link>
   </React.Fragment>
 )
@@ -28,7 +28,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <header className="main-header">
     <h1>MileEdge</h1>
-    <img src="./gas-station.png" alt="logo"/>
+    <img src={require('./car.png')} width="70px" height="70px" className="logo" alt="logo"/>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }

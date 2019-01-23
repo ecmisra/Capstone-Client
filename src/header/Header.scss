@@ -6,6 +6,7 @@ $charcoal: #bbb;
   display: flex;
   height: 100px;
   padding: 0 20px;
+  background-color: #968E9E;
 
   a,
   span {
@@ -47,4 +48,9 @@ $charcoal: #bbb;
       width: 80%;
     }
   }
+}
+
+.logo {
+  margin-top: 5px;
+  margin-left: 10px;
 }

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router'
 import apiUrl from '../../apiConfig'
 import { Redirect } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import messages from '../messages.js'
 
 class GasLog extends Component {
   constructor (props) {
@@ -45,10 +46,13 @@ class GasLog extends Component {
     }
 
     const id = this.props.match.params.id
+    const { flash } = this.props
 
     fetch(`${apiUrl}/gas_logs/${id}`, options)
       .then(res => res.ok ? res : new Error())
       .then(data => this.setState({ deleted: true }))
+      .then(() => flash(messages.deleteLogSuccess, 'flash-success'))
+      .catch(() => flash(messages.deleteLogFailure, 'flash-error'))
       .catch(() => this.setState({ notFound: true }))
   }
 
@@ -74,7 +78,7 @@ class GasLog extends Component {
     return (
       <React.Fragment>
         <ul  className="logs">
-          <h5>⛽️ Log #{gas_log.id}</h5>
+          <h4>⛽️ Log on {gas_log.date}</h4>
           <li><strong>Date:</strong> {gas_log.date}</li>
           <li><strong>Odometer:</strong> {gas_log.odometer} miles</li>
           <li><strong>Volume:</strong> {gas_log.volume} gallons</li>
@@ -84,8 +88,8 @@ class GasLog extends Component {
           <li><strong>Total spent:</strong> ${gas_log.total}</li>
         </ul>
         <button onClick={this.destroy} className="badge badge-warning m-3">Delete</button>
-        <button className="badge badge-info m-3"><Link to={`/gas_logs/${id}/edit`}>Edit</Link></button>
-        <button className="badge badge-success m-3"><Link to='/gas_logs/'>Back</Link></button>
+        <button className="badge badge-success m-3"><Link to={`/gas_logs/${id}/edit`}>Edit</Link></button>
+        <button className="badge badge-info m-3"><Link to='/gas_logs/'>Back</Link></button>
       </React.Fragment>
     )
   }
