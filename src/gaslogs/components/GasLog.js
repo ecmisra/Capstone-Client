@@ -29,7 +29,11 @@ class GasLog extends Component {
 
   destroy = () => {
     const options = {
-      method: 'DELETE'
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Token token=${this.state.user.token}`
+      },
     }
 
     const id = this.props.match.params.id

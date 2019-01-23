@@ -1,13 +1,13 @@
 import React, { Component, Fragment }  from 'react'
 import apiUrl from '../../apiConfig'
-import { withRouter, Redirect } from 'react-router-dom'
+import { withRouter, Redirect, Link } from 'react-router-dom'
 import './GasLogs.scss'
 import GasLogForm from './GasLogForm.js'
 
 class GasLogCreate extends Component {
   constructor(props) {
     super(props)
-    console.log(props)
+
     this.state = {
       id: null,
       user: props.user,
@@ -32,6 +32,7 @@ class GasLogCreate extends Component {
 
     fetch(`${apiUrl}/gas_logs`, options)
       .then(res => res.ok ? res : new Error())
+      // .then(console.log(res))
       .then(res => res.json())
       .then(data => this.setState({ gas_log: data.gas_log, id: data.gas_log.id }))
       .catch(console.error)
@@ -62,16 +63,19 @@ class GasLogCreate extends Component {
   render () {
     const { id } = this.state
     if (id) {
-      return <Redirect to='/gas_logs' />
+      return <Redirect to='/gas_logs'/>
     }
     const { date, odometer, volume, fuel, brand, price, total } = this.state.gas_log
 
     return (
-      <GasLogForm
-        handleChange={this.handleChange}
-        handleSubmit={this.handleSubmit}
-        gas_log={this.state.gas_log}
-      />
+      <Fragment>
+        <h3>New Gas Log</h3>
+        <GasLogForm
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          gas_log={this.state.gas_log}
+        />
+      </Fragment>
     )
   }
 }

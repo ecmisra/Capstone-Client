@@ -11,6 +11,7 @@ import ChangePassword from './auth/components/ChangePassword'
 import GasLogCreate from './gaslogs/components/CreateGasLog'
 import GasLogs from './gaslogs/components/GasLogs'
 import GasLog from './gaslogs/components/GasLog'
+import GasLogEdit from './gaslogs/components/EditGasLog'
 
 class App extends Component {
   constructor () {
@@ -63,8 +64,11 @@ class App extends Component {
           <AuthenticatedRoute user={user} exact path='/gas_logs' render={() => (
             <GasLogs flash={this.flash} user={user} />
           )} />
-          <AuthenticatedRoute user={user} path='/gas_logs/:id' render={() => (
+          <AuthenticatedRoute user={user} exact path='/gas_logs/:id' render={() => (
             <GasLog flash={this.flash} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/gas_logs/:id/edit' render={() => (
+            <GasLogEdit flash={this.flash} user={user} />
           )} />
         </main>
       </React.Fragment>
