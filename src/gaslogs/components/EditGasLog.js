@@ -12,9 +12,33 @@ class GasLogEdit extends Component {
       updated: false,
       id: '',
       user: props.user,
-      gas_log: []
+      gas_log: {
+        date:'',
+        odometer:'',
+        volume:'',
+        fuel:'',
+        brand:'',
+        price:'',
+        total:''
+      }
     }
 
+  }
+
+  componentDidMount () {
+    const id = this.props.match.params.id
+
+    fetch(`${apiUrl}/gas_logs/${id}`)
+      .then(res => res.ok ? res : new Error())
+      .then(res => res.json())
+      .then(data => this.setState({ gas_log: data.gas_log, id: data.gas_log.id }))
+      .catch(console.error)
+  }
+
+  handleChange = event => {
+    const updatedField = { [event.target.name]: event.target.value }
+    const editedGasLog = Object.assign(this.state, updatedField)
+    this.setState({ gas_log: editedGasLog })
   }
 
   handleSubmit = (event) => {
@@ -31,18 +55,16 @@ class GasLogEdit extends Component {
       })
     }
 
+    const id = this.props.match.params.id
+
     fetch(`${apiUrl}/gas_logs/${id}`, options)
       .then(res => res.ok ? res : new Error())
-      .then(res => res.json())
-      .then(data => this.setState({ gas_log: data.gas_log, id: data.gas_log.id }))
+      .then(data => this.setState({ updated: true }))
       .catch(console.error)
+
   }
 
-  handleChange = event => {
-    const updatedField = { [event.target.name]: event.target.value }
-    const editedGasLog = Object.assign(this.state, updatedField)
-    this.setState({ gas_log: editedGasLog })
-  }
+
 
   render () {
     const { id } = this.state

@@ -11,7 +11,15 @@ class GasLogCreate extends Component {
     this.state = {
       id: null,
       user: props.user,
-      gas_log: []
+      gas_log: {
+        date:'',
+        odometer:'',
+        volume:'',
+        fuel:'',
+        brand:'',
+        price:'',
+        total:''
+      }
     }
 
   }
