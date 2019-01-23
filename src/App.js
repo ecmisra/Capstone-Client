@@ -12,6 +12,7 @@ import GasLogCreate from './gaslogs/components/CreateGasLog'
 import GasLogs from './gaslogs/components/GasLogs'
 import GasLog from './gaslogs/components/GasLog'
 import GasLogEdit from './gaslogs/components/EditGasLog'
+import createGasLog from './gaslogs/api.js'
 
 class App extends Component {
   constructor () {

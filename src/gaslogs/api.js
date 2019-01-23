@@ -8,14 +8,13 @@ export const handleErrors = res => {
   }
 }
 
-export const signUp = credentials => {
-  return fetch(apiUrl + '/sign-up', {
-    method: 'POST',
+export const createGasLog = credentials => {
+  return fetch(apiUrl + '/gas_logs', {
+    method: 'GET',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      'Authorization':`Token token=${user.token}`
     },
-    body: JSON.stringify({
-    })
   })
 }
 

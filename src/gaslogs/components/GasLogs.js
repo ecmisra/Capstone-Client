@@ -19,7 +19,17 @@ class GasLogs extends Component {
   componentDidMount () {
     const id = this.props.match.params.id
 
-    fetch(`${apiUrl}/gas_logs`)
+
+
+    const options = {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization':`Token token=${this.state.user.token}`
+      }
+
+    }
+    fetch(`${apiUrl}/gas_logs`, options)
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(data => this.setState({ gas_log: data.gas_logs }))
