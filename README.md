@@ -16,13 +16,15 @@
 1.  Create a new branch, `training`, for your work.
 1.  Checkout to the `training` branch.
 1.  Install dependencies with `npm install`.
-1.  Run `npm start` to run website on local
+1.  Run `npm start` to run website locally
 
 
 ### Description
 MileEdge is an app which allows users to create a log of each time they get gas for their car.
 
 Users can record their mileage, the amount of gas purchased and at what price, and even what gas station they visited. The idea being that keeping a close eye on your fuel consumption can help you to economize your driving style and to help "train" yourself to drive more economically, getting the most for your money.
+
+I have lived in several traffic-heavy cities throughout my life, and as a result I have learned the hard way how beneficial it can be (both financially and psychologically) to have a clear understanding of how economically you drive, and the importance of maintaining a close watch of your car's MPG performance. MileEdge gives you the edge when it comes to maximizing your car's MPG.
 
 
 ### Webpage Screenshot
@@ -45,12 +47,16 @@ Users can record their mileage, the amount of gas purchased and at what price, a
 ### Planning/Building Process
 
 * Wireframes/ERD/User Stories
-* Connect user to directors api (user ownership/directors belong to)
-* Build/test CRUDs one at a time
-* Create front-end client
-* Test front-end auth functionality, one function at a time (sign up/in/out, change password)
-* Test front-end resource functionality, one function at a time (add/edit/delete director)
-* Add styling to front-end
+* Scaffold/build API gas_logs resource
+* Build/test auth CRUDs one at a time on my terminal
+* Build/test resource CRUDs one at a time on my terminal
+* Create React client for Gas Logs
+* Test client auth functionality, one function at a time (sign up/in/out, change password)
+* Build routes/links/components for Gas Logs client
+* Test client resource functionality, one function at a time (add/edit/delete Gas Log)
+* Add user-facing success/error messages
+* Test message functionality
+* Optimize styling for Gas Logs client
 
 
 ### User Stories
@@ -71,4 +77,4 @@ Users can record their mileage, the amount of gas purchased and at what price, a
 
 ### Future Improvements/Plans
 
-In the future, I would ideally like to
+In the future, I would ideally like to advance the functionality of this application. For example: have forms automatically calculate the total based on price per gallon and volume of gas purchased. I would also like to implement a table format for all Gas Logs to make the appearance cleaner/more professional. Even further advancements I'd like to see are integrating google maps API so that users can record their favorite or go-to gas station of choice.
