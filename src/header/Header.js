@@ -29,7 +29,7 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1>MileEdge</h1>
+    <h1 className="app-title">MileEdge</h1>
     <img src={require('./car.png')} width="70px" height="70px" className="logo" alt="logo"/>
     <nav>
       { user && <span>Welcome, {user.email}</span>}
