@@ -69,7 +69,7 @@ class GasLog extends Component {
       return <p>loading...</p>
     } else if (deleted) {
       return (<Redirect to={{
-        pathname: '/',
+        pathname: '/gas_logs',
         state: { message: 'Log successfully deleted!'}
       }} />
       )
