@@ -45,7 +45,7 @@ class SignUp extends Component {
         <h3>Sign Up</h3>
 
         <label htmlFor="email">Email</label>
-        <input
+        <input className="inputs"
           required
           name="email"
           value={email}
@@ -54,7 +54,7 @@ class SignUp extends Component {
           onChange={this.handleChange}
         />
         <label htmlFor="password">Password</label>
-        <input
+        <input className="inputs"
           required
           name="password"
           value={password}
@@ -63,7 +63,7 @@ class SignUp extends Component {
           onChange={this.handleChange}
         />
         <label htmlFor="passwordConfirmation">Confirm Password</label>
-        <input
+        <input className="inputs"
           required
           name="passwordConfirmation"
           value={passwordConfirmation}
@@ -71,7 +71,7 @@ class SignUp extends Component {
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" className="form-submit">Sign Up</button>
       </form>
     )
   }

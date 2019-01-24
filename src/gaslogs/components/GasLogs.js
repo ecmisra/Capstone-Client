@@ -60,7 +60,7 @@ class GasLogs extends Component {
       return (
         <div key={gas_log.id}>
           <ul  className="logs">
-            <Link to={`/gas_logs/${gas_log.id}`}><h5>⛽️ Log on {gas_log.date}</h5></Link>
+            <Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link>
             <li><strong>Odometer:</strong> {gas_log.odometer} miles</li>
             <li><strong>Volume:</strong> {gas_log.volume} gallons</li>
             <li><strong>Fuel Type:</strong> {gas_log.fuel}</li>

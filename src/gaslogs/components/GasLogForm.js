@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, volume, fuel, brand, price, total }) => (
   <form className='gas-log-form' onSubmit={handleSubmit}>
     <label htmlFor="date">Date</label>
-    <input
+    <input className="inputs"
       required
       type="date"
       name="date"
@@ -13,7 +13,7 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       onChange={handleChange}
     />
     <label htmlFor="odometer">Odometer</label>
-    <input
+    <input className="inputs"
       required
       name="odometer"
       value={gas_log.odometer}
@@ -21,7 +21,7 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       onChange={handleChange}
     />
     <label htmlFor="volume">Volume</label>
-    <input
+    <input className="inputs"
       required
       name="volume"
       value={gas_log.volume}
@@ -29,7 +29,7 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       onChange={handleChange}
     />
     <label htmlFor="fuel">Fuel Type</label>
-    <input
+    <input className="inputs"
       required
       name="fuel"
       value={gas_log.fuel}
@@ -37,7 +37,7 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       onChange={handleChange}
     />
     <label htmlFor="brand">Brand</label>
-    <input
+    <input className="inputs"
       required
       name="brand"
       value={gas_log.brand}
@@ -45,7 +45,7 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       onChange={handleChange}
     />
     <label htmlFor="price">Price</label>
-    <input
+    <input className="inputs"
       required
       name="price"
       value={gas_log.price}
@@ -53,14 +53,14 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       onChange={handleChange}
     />
     <label htmlFor="total">Total $</label>
-    <input
+    <input className="inputs"
       required
       name="total"
       value={gas_log.total}
       placeholder="Total spent"
       onChange={handleChange}
     />
-    <button type="submit">Submit</button>
+    <button type="submit" className="form-submit">Submit</button>
   </form>
 )
 
