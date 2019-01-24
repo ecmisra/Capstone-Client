@@ -8,7 +8,6 @@ import messages from '../messages.js'
 class GasLog extends Component {
   constructor (props) {
     super(props)
-    console.log('props, gas_log', props)
 
     this.state = {
       user: props.user,
@@ -61,7 +60,6 @@ class GasLog extends Component {
   }
 
   render () {
-    console.log(this.state)
 
     const { gas_log, notFound, deleted } = this.state
 
@@ -89,7 +87,7 @@ class GasLog extends Component {
           <li><strong>Fuel Type:</strong> {gas_log.fuel}</li>
           <li><strong>Brand of Gas:</strong> {gas_log.brand}</li>
           <li><strong>Price per gal:</strong> ${gas_log.price}</li>
-          <li><strong>Total spent:</strong> ${gas_log.total}</li>
+          <li><strong>Total spent:</strong> ${gas_log.price} * ${gas_log.volume}</li>
         </ul>
         <button onClick={this.destroy} className="badge badge-warning m-3">Delete</button>
         <button className="badge badge-success m-3"><Link to={`/gas_logs/${id}/edit`}>Edit</Link></button>

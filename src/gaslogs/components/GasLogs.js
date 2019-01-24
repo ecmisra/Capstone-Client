@@ -23,7 +23,6 @@ class GasLogs extends Component {
     const id = this.props.match.params.id
 
 
-
     const options = {
       method: 'GET',
       headers: {

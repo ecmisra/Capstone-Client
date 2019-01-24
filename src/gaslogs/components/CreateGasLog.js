@@ -44,7 +44,6 @@ class GasLogCreate extends Component {
 
     fetch(`${apiUrl}/gas_logs`, options)
       .then(res => res.ok ? res : new Error())
-      // .then(console.log(res))
       .then(res => res.json())
       .then(data => this.setState({ gas_log: data.gas_log, id: data.gas_log.id }))
       .then(() => flash(messages.createLogSuccess, 'flash-success'))
