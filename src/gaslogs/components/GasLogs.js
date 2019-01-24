@@ -80,7 +80,7 @@ class GasLogs extends Component {
 
     return (
       <Fragment>
-        <h1><strong>Gas Logs</strong></h1>
+        <h1 className="app-title">Gas Logs</h1>
         {gas_logs}
       </Fragment>
     )

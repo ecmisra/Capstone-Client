@@ -94,7 +94,7 @@ class GasLogEdit extends Component {
     // Using GasLogForm to edit existing Gas Log
     return (
       <Fragment>
-        <h2>Edit Log</h2>
+        <h2 className="app-title">Edit Log</h2>
         <GasLogForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}

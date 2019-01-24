@@ -82,7 +82,7 @@ class GasLog extends Component {
     return (
       <React.Fragment>
         <ul  className="logs">
-          <h4 className="log-title">⛽️ Log on {gas_log.date}</h4>
+          <h4 className="log-title app-title">⛽️ Log on {gas_log.date}</h4>
           <li><strong>Date:</strong> {gas_log.date}</li>
           <li><strong>Odometer:</strong> {gas_log.odometer} miles</li>
           <li><strong>Volume:</strong> {gas_log.volume} gallons</li>

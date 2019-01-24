@@ -37,7 +37,7 @@ class ChangePassword extends Component {
 
     return (
       <form className='auth-form' onSubmit={this.changePassword}>
-        <h3>Change Password</h3>
+        <h3 className="app-title">Change Password</h3>
 
         <label htmlFor="oldpw">Old Password</label>
         <input className="inputs"

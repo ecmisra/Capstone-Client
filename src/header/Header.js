@@ -32,7 +32,7 @@ const Header = ({ user }) => (
     <h1 className="app-title">MileEdge</h1>
     <img src={require('./car.png')} width="70px" height="70px" className="logo" alt="logo"/>
     <nav>
-      { user && <span>Welcome, {user.email}</span>}
+      { user && <span className="app-title">Welcome, {user.email}</span>}
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
     </nav>

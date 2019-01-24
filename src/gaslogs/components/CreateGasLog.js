@@ -84,7 +84,7 @@ class GasLogCreate extends Component {
     // Using GasLogForm to create a new Gas Log
     return (
       <Fragment>
-        <h3>New Gas Log</h3>
+        <h3 className="app-title">New Gas Log</h3>
         <GasLogForm
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
