@@ -23,13 +23,13 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <React.Fragment>
-    <Link to="/" className="badge badge-info m-3">Home</Link>
+    
   </React.Fragment>
 )
 
 const Header = ({ user }) => (
   <header className="main-header">
-    <h1 className="app-title">MileEdge</h1>
+    <Link to="/"><h1 className="app-title">MileEdge</h1></Link>
     <img src={require('./car.png')} width="70px" height="70px" className="logo" alt="logo"/>
     <nav>
       { user && <span className="app-title">Welcome, {user.email}</span>}
