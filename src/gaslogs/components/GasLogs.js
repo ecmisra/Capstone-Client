@@ -60,6 +60,14 @@ class GasLogs extends Component {
   // Display for all Gas Logs
 
   render () {
+
+    const { gas_log, notFound, deleted } = this.state
+
+    // Display message to user if they haven't created any gas logs yet
+    if (this.state.gas_log.length == 0) {
+      return (<h4>You don&#39;t have any gas logs!</h4>)
+    }
+
     const gas_logs = this.state.gas_log.map(gas_log => {
       return (
         <div key={gas_log.id}>
