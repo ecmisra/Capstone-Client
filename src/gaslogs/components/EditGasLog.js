@@ -26,6 +26,8 @@ class GasLogEdit extends Component {
 
   }
 
+
+  // GET a Gas Log from API so that it can then be editing
   componentDidMount () {
     const id = this.props.match.params.id
 
@@ -51,6 +53,8 @@ class GasLogEdit extends Component {
     this.setState({ gas_log: editedGasLog })
   }
 
+
+  // PATCH for editing a Gas Log
   handleSubmit = (event) => {
     event.preventDefault()
 
@@ -87,6 +91,7 @@ class GasLogEdit extends Component {
     }
     const { date, odometer, volume, fuel, brand, price, total } = this.state.gas_log
 
+    // Using GasLogForm to edit existing Gas Log
     return (
       <Fragment>
         <h2>Edit Log</h2>

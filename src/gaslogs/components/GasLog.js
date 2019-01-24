@@ -18,6 +18,8 @@ class GasLog extends Component {
     }
   }
 
+  // SHOW one Gas Log
+
   componentDidMount () {
     const id = this.props.match.params.id
 
@@ -35,6 +37,8 @@ class GasLog extends Component {
       .then(data => this.setState({ gas_log: data.gas_log }))
       .catch(() => this.setState({ notFound: true }))
   }
+
+  // DELETE one Gas Log
 
   destroy = () => {
     const options = {

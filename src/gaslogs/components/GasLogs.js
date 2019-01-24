@@ -17,6 +17,8 @@ class GasLogs extends Component {
     }
   }
 
+  // GET all Gas Logs
+
   componentDidMount () {
     const id = this.props.match.params.id
 
@@ -41,6 +43,8 @@ class GasLogs extends Component {
       .catch(() => flash(messages.getLogFailure, 'flash-error'))
   }
 
+  // DELETE one Gas Log
+
   destroy = () => {
     const options = {
       method: 'DELETE'
@@ -54,12 +58,14 @@ class GasLogs extends Component {
       .catch(() => this.setState({ notFound: true }))
   }
 
+  // Display for all Gas Logs
+
   render () {
-    // console.log(this.state)
     const gas_logs = this.state.gas_log.map(gas_log => {
       return (
         <div key={gas_log.id}>
           <ul  className="logs">
+            {/* Link to individual Gas Log page v */}
             <Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link>
             <li><strong>Odometer:</strong> {gas_log.odometer} miles</li>
             <li><strong>Volume:</strong> {gas_log.volume} gallons</li>
@@ -71,21 +77,7 @@ class GasLogs extends Component {
         </div>
       )
     })
-    // const { gas_log, notFound, deleted } = this.state
 
-    // if (notFound) {
-    //   return <Redirect to="/" />
-    // } else if (!gas_log) {
-    //   return <p>loading...</p>
-    // } else if (deleted) {
-    //   return (<Redirect to={{
-    //     pathname: '/',
-    //     state: { message: 'Gas Log successfully deleted!'}
-    //   }} />
-    //   )
-
-
-    // const { date, odometer, volume, fuel, brand, price, total } = gas_log
     return (
       <Fragment>
         <h1><strong>Gas Logs</strong></h1>

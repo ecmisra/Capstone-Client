@@ -25,6 +25,7 @@ class GasLogCreate extends Component {
 
   }
 
+  // POST to create a new Gas Log
   handleSubmit = (event) => {
     event.preventDefault()
 
@@ -80,6 +81,7 @@ class GasLogCreate extends Component {
     }
     const { date, odometer, volume, fuel, brand, price, total } = this.state.gas_log
 
+    // Using GasLogForm to create a new Gas Log
     return (
       <Fragment>
         <h3>New Gas Log</h3>

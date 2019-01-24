@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 
 import './Header.scss'
 
+// Routes/Links only available to signed-in users
 const authenticatedOptions = (
   <React.Fragment>
     <Link to="/change-password" className="badge badge-info m-3">Change Password</Link>
@@ -12,6 +13,7 @@ const authenticatedOptions = (
   </React.Fragment>
 )
 
+// Routes/Links only available to not-signed-in users
 const unauthenticatedOptions = (
   <React.Fragment>
     <Link to="/sign-up" className="badge badge-success m-3">Sign Up</Link>
