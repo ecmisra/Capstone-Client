@@ -87,7 +87,7 @@ class GasLog extends Component {
           <li><strong>Fuel Type:</strong> {gas_log.fuel}</li>
           <li><strong>Brand of Gas:</strong> {gas_log.brand}</li>
           <li><strong>Price per gal:</strong> ${gas_log.price}</li>
-          <li><strong>Total spent:</strong> ${gas_log.price} * ${gas_log.volume}</li>
+          <li><strong>Total spent:</strong> ${gas_log.total}</li>
         </ul>
         <button onClick={this.destroy} className="badge badge-warning m-3">Delete</button>
         <button className="badge badge-success m-3"><Link to={`/gas_logs/${id}/edit`}>Edit</Link></button>
