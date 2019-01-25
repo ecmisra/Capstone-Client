@@ -29,7 +29,7 @@ I have lived in several traffic-heavy cities throughout my life, and as a result
 
 ### Webpage Screenshot
 
-![Eshan Misra Capstone Client Screenshot](https://i.imgur.com/yp28faE.jpg)
+![Eshan Misra Capstone Client Screenshot](https://i.imgur.com/jjscV2l.jpg)
 
 
 ### Technologies Used
