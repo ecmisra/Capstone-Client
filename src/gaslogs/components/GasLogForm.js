@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 // Form used for CREATING and EDITING Gas Logs
 const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, volume, fuel, brand, price, total }) => (
-  <form className='gas-log-form' onSubmit={handleSubmit}>
+  <form className='gas-log-form' id='form' onSubmit={handleSubmit}>
     <label htmlFor="date">Date</label>
     <input className="inputs"
       required

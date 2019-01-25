@@ -6,21 +6,24 @@ import GasLogForm from './GasLogForm.js'
 import messages from '../messages.js'
 
 class GasLogCreate extends Component {
+  initialGasLog = () => {
+    return {
+      date:'',
+      odometer:'',
+      volume:'',
+      fuel:'',
+      brand:'',
+      price:'',
+      total:''
+    }
+  }
   constructor(props) {
     super(props)
 
     this.state = {
       id: null,
       user: props.user,
-      gas_log: {
-        date:'',
-        odometer:'',
-        volume:'',
-        fuel:'',
-        brand:'',
-        price:'',
-        total:''
-      }
+      gas_log: this.initialGasLog()
     }
 
   }
@@ -47,8 +50,10 @@ class GasLogCreate extends Component {
       .then(res => res.json())
       .then(data => this.setState({ gas_log: data.gas_log, id: data.gas_log.id }))
       .then(() => flash(messages.createLogSuccess, 'flash-success'))
-      .catch(() => flash(messages.createLogFailure, 'flash-error'))
-      .catch(console.error)
+      .catch(() => {
+        flash(messages.createLogFailure, 'flash-error')
+        this.setState({ gas_log: this.initialGasLog() })
+      })
   }
 
   handleChange = (event) => {
