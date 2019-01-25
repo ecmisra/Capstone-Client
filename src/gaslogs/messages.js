@@ -5,5 +5,5 @@ export default {
   deleteLogFailure: 'Failed to delete Gas Log, please try again.',
   updateLogSuccess: 'Gas Log successfully updated!',
   updateLogFailure: 'Gas Log failed to update, please try again.',
-  getLogFailure: 'Error: You have no Gas Logs currently.'
+  getLogFailure: 'Error: failed to get Gas Logs.'
 }

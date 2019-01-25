@@ -43,7 +43,7 @@ class GasLogEdit extends Component {
       .then(res => res.ok ? res : new Error())
       .then(res => res.json())
       .then(data => this.setState({ gas_log: data.gas_log, id: data.gas_log.id }))
-      .catch(console.error)
+      .catch(() => flash(messages.getLogFailure, 'flash-error'))
   }
 
   handleChange = event => {
@@ -77,7 +77,6 @@ class GasLogEdit extends Component {
       .then(data => this.setState({ updated: true }))
       .then(() => flash(messages.updateLogSuccess, 'flash-success'))
       .catch(() => flash(messages.updateLogFailure, 'flash-error'))
-      .catch(console.error)
 
   }
 
