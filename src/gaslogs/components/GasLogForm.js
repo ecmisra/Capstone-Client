@@ -18,6 +18,7 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
     <input className="inputs"
       required
       name="odometer"
+      maxLength="7"
       value={gas_log.odometer}
       placeholder="Odometer Reading"
       onChange={handleChange}
