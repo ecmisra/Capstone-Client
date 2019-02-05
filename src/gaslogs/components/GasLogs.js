@@ -70,25 +70,39 @@ class GasLogs extends Component {
 
     const gas_logs = this.state.gas_log.map(gas_log => {
       return (
-        <div key={gas_log.id}>
-          <ul  className="logs">
+        <tbody key={gas_log.id}>
+          <tr  className="logs">
             {/* Link to individual Gas Log page v */}
-            <Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link>
-            <li><strong>Odometer:</strong> {gas_log.odometer} miles</li>
-            <li><strong>Volume:</strong> {gas_log.volume} gallons</li>
-            <li><strong>Fuel Type:</strong> {gas_log.fuel}</li>
-            <li><strong>Brand of Gas:</strong> {gas_log.brand}</li>
-            <li><strong>Price per gal:</strong> ${gas_log.price}</li>
-            <li><strong>Total spent:</strong> ${gas_log.total}</li>
-          </ul>
-        </div>
+            <td><Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link></td>
+            <td>{gas_log.odometer} miles</td>
+            <td>{gas_log.volume} gallons</td>
+            <td>{gas_log.fuel}</td>
+            <td>{gas_log.brand}</td>
+            <td>${gas_log.price}</td>
+            <td>${gas_log.total}</td>
+          </tr>
+          <hr></hr>
+        </tbody>
       )
     })
 
     return (
       <Fragment>
         <h1 className="app-title">Gas Logs</h1>
-        {gas_logs}
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Odometer____</th>
+              <th>Volume (gal)____</th>
+              <th>Fuel Type____</th>
+              <th>Brand____</th>
+              <th>Price per gal ($)____</th>
+              <th>Total ($)</th>
+            </tr>
+          </thead>
+          {gas_logs}
+        </table>
       </Fragment>
     )
   }
