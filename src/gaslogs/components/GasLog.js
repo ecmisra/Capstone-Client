@@ -77,6 +77,11 @@ class GasLog extends Component {
 
 
     const { id } = gas_log
+    const x = this.state.gas_log.volume
+    const y = this.state.gas_log.price
+    const totalFunc = (x, y) => {
+      return x * y
+    }
     return (
       <React.Fragment>
         <ul  className="logs">
@@ -87,7 +92,7 @@ class GasLog extends Component {
           <li><strong>Fuel Type:</strong> {gas_log.fuel}</li>
           <li><strong>Brand of Gas:</strong> {gas_log.brand}</li>
           <li><strong>Price per gal:</strong> ${gas_log.price}</li>
-          <li><strong>Total spent:</strong> ${gas_log.total}</li>
+          <li><strong>Total spent:</strong> ${totalFunc(gas_log.volume, gas_log.price)}</li>
         </ul>
         <button onClick={this.destroy} className="badge badge-warning m-3">Delete</button>
         <button className="badge badge-success m-3"><Link to={`/gas_logs/${id}/edit`}>Edit</Link></button>

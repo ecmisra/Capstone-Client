@@ -55,14 +55,14 @@ const GasLogForm = ({ handleChange, handleSubmit, gas_log, id, date, odometer, v
       placeholder="$ per gallon"
       onChange={handleChange}
     />
-    <label htmlFor="total">Total $</label>
+    {/* <label htmlFor="total">Total $</label>
     <input className="inputs"
       required
       name="total"
       value={gas_log.total}
       placeholder="Total spent"
       onChange={handleChange}
-    />
+    /> */}
     <button type="submit" className="form-submit">Submit</button>
   </form>
 )

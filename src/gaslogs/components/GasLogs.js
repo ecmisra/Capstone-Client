@@ -69,19 +69,23 @@ class GasLogs extends Component {
     }
 
     const gas_logs = this.state.gas_log.map(gas_log => {
+      const x = this.state.gas_log.volume
+      const y = this.state.gas_log.price
+      const totalFunc = (x, y) => {
+        return x * y
+      }
       return (
         <tbody key={gas_log.id}>
           <tr  className="logs">
             {/* Link to individual Gas Log page v */}
-            <td><Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link></td>
-            <td>{gas_log.odometer} miles</td>
-            <td>{gas_log.volume} gallons</td>
-            <td>{gas_log.fuel}</td>
-            <td>{gas_log.brand}</td>
-            <td>${gas_log.price}</td>
-            <td>${gas_log.total}</td>
+            <td className="mb-6"><Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link></td>
+            <td className="mb-6">{gas_log.odometer} miles</td>
+            <td className="mb-6">{gas_log.volume} gallons</td>
+            <td className="mb-6">{gas_log.fuel}</td>
+            <td className="mb-6">{gas_log.brand}</td>
+            <td className="mb-6">${gas_log.price}</td>
+            <td className="mb-6">${totalFunc(gas_log.volume, gas_log.price)}</td>
           </tr>
-          <hr></hr>
         </tbody>
       )
     })
@@ -93,12 +97,12 @@ class GasLogs extends Component {
           <thead>
             <tr>
               <th>Date</th>
-              <th>Odometer____</th>
-              <th>Volume (gal)____</th>
-              <th>Fuel Type____</th>
-              <th>Brand____</th>
-              <th>Price per gal ($)____</th>
-              <th>Total ($)</th>
+              <th className="mb-6">| Odometer   |</th>
+              <th className="mb-6">Volume (gal)   |</th>
+              <th className="mb-6">Fuel Type   |</th>
+              <th className="mb-6">Brand   |</th>
+              <th className="mb-6">Price per gal ($)   |</th>
+              <th className="mb-6">Total ($)   |</th>
             </tr>
           </thead>
           {gas_logs}
