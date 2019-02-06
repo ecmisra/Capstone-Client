@@ -76,15 +76,15 @@ class GasLogs extends Component {
       }
       return (
         <tbody key={gas_log.id}>
-          <tr  className="logs">
+          <tr>
             {/* Link to individual Gas Log page v */}
-            <td className="mb-6"><Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link></td>
-            <td className="mb-6">{gas_log.odometer} miles</td>
-            <td className="mb-6">{gas_log.volume} gallons</td>
-            <td className="mb-6">{gas_log.fuel}</td>
-            <td className="mb-6">{gas_log.brand}</td>
-            <td className="mb-6">${gas_log.price}</td>
-            <td className="mb-6">${totalFunc(gas_log.volume, gas_log.price)}</td>
+            <td><Link to={`/gas_logs/${gas_log.id}`}><h5 className="log-title">⛽️ Log on {gas_log.date}</h5></Link></td>
+            <td className="title">{gas_log.odometer} miles</td>
+            <td className="title">{gas_log.volume} gallons</td>
+            <td className="title">{gas_log.fuel}</td>
+            <td className="title">{gas_log.brand}</td>
+            <td className="title">${gas_log.price}</td>
+            <td className="title">${totalFunc(gas_log.volume, gas_log.price)}</td>
           </tr>
         </tbody>
       )
@@ -97,12 +97,12 @@ class GasLogs extends Component {
           <thead>
             <tr>
               <th>Date</th>
-              <th className="mb-6">| Odometer   |</th>
-              <th className="mb-6">Volume (gal)   |</th>
-              <th className="mb-6">Fuel Type   |</th>
-              <th className="mb-6">Brand   |</th>
-              <th className="mb-6">Price per gal ($)   |</th>
-              <th className="mb-6">Total ($)   |</th>
+              <th>Odometer</th>
+              <th>Volume (gal)</th>
+              <th>Fuel Type</th>
+              <th>Brand</th>
+              <th>Price per gal ($)</th>
+              <th>Total ($)</th>
             </tr>
           </thead>
           {gas_logs}
